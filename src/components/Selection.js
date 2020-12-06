@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 function Selection(props){
-    const [color, setcolor] = useState('');
+    const [color, setcolor] = useState({background : ""});
+    const { applyColor } = props;
     const addColor = (bg)=>{
         
         return bg.background;
@@ -10,10 +11,7 @@ function Selection(props){
         //console.log(evt.target.style);
         
     }
-    const finalColor = ()=>{
-        setcolor(props.applyColor(addColor))
-    }
-    return (<div className="fix-box"  style={{background : color}} onClick={finalColor} >
+    return (<div className="fix-box"  style={color} onClick={()=>applyColor(setcolor)} >
             <h2 className="subheading">Selection</h2>
         </div>)
 }
